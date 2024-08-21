@@ -1,16 +1,20 @@
 class IcloudNosync < Formula
-  desc "Prevent a file or directory from syncing with iCloud by adding the nosync extension."
+  desc "Prevent a file or directory from syncing with iCloud"
   homepage "https://github.com/peterbrain/icloud-nosync"
-  url "https://github.com/peterbrain/icloud-nosync/archive/0.1.0.tar.gz"
-  sha256 "8dd789d48e282a0a820e97f0494a5a7e6045b1be3bb9192d36a186c5dc65c304"
+  url "https://github.com/peterbrain/icloud-nosync/archive/refs/tags/0.1.1.tar.gz"
+  sha256 "2fcfa2a61bce8beba29b732c41ec05c1ecfbe80149cb8b43d401f5f8a3770539"
   license "MIT"
-  version "0.1.0"
 
   def install
     bin.install "nosync.sh" => "nosync"
   end
 
   test do
-    system "#{bin}/nosync", "--version"
+    (testpath/"testfile").write("This is a test file")
+
+    system "#{bin}/nosync", "testfile"
+
+    assert_predicate testpath/"testfile.nosync", :exist?, "The .nosync file should exist"
+    assert_predicate testpath/"testfile", :symlink?, "The original file should be a symlink"
   end
 end
