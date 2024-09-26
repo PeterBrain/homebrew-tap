@@ -1,8 +1,8 @@
 class IcloudNosync < Formula
   desc "Prevent a file or directory from syncing with iCloud"
   homepage "https://github.com/peterbrain/icloud-nosync"
-  url "https://github.com/peterbrain/icloud-nosync/archive/refs/tags/0.2.2.tar.gz"
-  sha256 "d3d76589e3f38ba5bb7701c8d5799550e0824cf837b2a7868c61a60ef268dc7a"
+  url "https://github.com/peterbrain/icloud-nosync/archive/refs/tags/0.2.3.tar.gz"
+  sha256 "2118c8ec5e8c1b8233e68a74c6ab251c43abb8f83f37a6c2b8aaa10a65f230be"
   license "MIT"
 
   def install
